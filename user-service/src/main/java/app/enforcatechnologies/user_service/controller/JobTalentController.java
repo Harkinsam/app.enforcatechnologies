@@ -27,6 +27,11 @@ public class JobTalentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
+    @GetMapping("/profile")
+    public ResponseEntity<JobTalent> viewProfile(@RequestParam String email) {
+        JobTalent jobTalent = jobTalentService.viewProfile(email);
+        return ResponseEntity.ok(jobTalent);
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<JobTalent>> getJobTalents() {
